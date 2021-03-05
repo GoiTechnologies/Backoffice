@@ -37,3 +37,4 @@ Route::post('/pin_update', 'MainController@pin_update')->name('pin_update');
 
 Route::post('/comprar_inversion', 'MainController@comprar_inversion')->name('comprar_inversion');
 Route::post('/procesar_pago_inversion', 'MainController@procesar_pago_inversion')->name('procesar_pago_inversion');
+Route::get('/detalle_inversion', 'HomeController@detalle_inversion')->name('detalle_inversion');

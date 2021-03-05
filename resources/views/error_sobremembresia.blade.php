@@ -12,12 +12,12 @@
         <div class="col-md-2">
         </div>
         <div class="col-md-8 text-center">
-          <h3 class="text-danger">Error Ya Cuentas con esta Membresia <i class="fas fa-ban"></i></h3>
+          <h3 class="text-danger">Error Ya Cuentas con esta Membresia Ò Inversiòn<i class="fas fa-ban"></i></h3>
           <hr>
 
           <div class="alert alert-danger" role="alert">
               <strong>Error de Compra. No es posible adquirir la misma membresia, prueba con otra:</strong><br>
-              - Solo 1 tipo de Membresia por usuario.<br>
+              - Solo 1 tipo de Membresia ò Inversiòn por usuario.<br>
               - La Session a Caducado.<br>
               - Ahora sera direccionado al inicio.<br>
               - Error de Intento de Compra Duplicada.

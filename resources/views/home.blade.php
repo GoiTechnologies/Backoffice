@@ -5,14 +5,24 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header" style="background-color:#003366; color:#fff;">
-                  <div class="row">
+                <div class="card-header">
+
+                  <div class="row" style="background-color:#003366; color:#fff; margin-left:3px; margin-right:12px; height:55px; padding-top:10px;">
                     <div class="col-lg-2 text-center">
-                      <img src="{{URL::to('/') }}/us.png" width="70%;"/>
+                      <img src="{{URL::to('/') }}/us.png" width="30%;"/>
                     </div>
+                  <div class="col-lg-4">
+                    <h5>Usuario: {{ $user->name }}</h5>
+
+
+                  </div>
+
+                  <div class="col-lg-4">
+                    <h5><i class="fas fa-envelope-square"></i> Email:
+                    {{ $user->email }}</h5>
+                  </div>
+
                   <div class="col-lg-2">
-                    <h5> <i class="fas fa-user-circle"></i> Usuario:</h5>
-                    {{ $user->name }}<br>
                     <div class="dropdown">
                       <button class="btn btn-info btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Màs Opciones <i class="fas fa-user-plus"></i>
@@ -50,7 +60,7 @@
                   <input value="{{$user->email}}" name="email" hidden/>
                   <a class="dropdown-item" href="#"
                    onclick="document.getElementById('form-id4').submit();">
-                    <i class="fas fa-money-bill-alt"></i> Mis Pagos Mensuales</a>
+                    <i class="fas fa-money-bill-alt"></i> Todos Mis Pagos Mensuales</a>
                 </form>
 
                 <form method="post" action="{{URL::to('/') }}/mis_transacciones" id="form-id5">
@@ -66,14 +76,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-2">
-                    <h5><i class="fas fa-envelope-square"></i> Email:</h5>
-                    {{ $user->email }}
-                  </div>
-                  <div class="col-lg-6">
-                    <h5><i class="fas fa-wallet"></i> Wallet:</h5>
-                    <p style="font-size:12px;">{{ $user->wallet }}<br>
-                  </div>
                   </div>
 
                 </div>
@@ -85,24 +87,18 @@
         <div class="panel"  style="height:100px; background-color:grey; margin-right:15px; padding:15px;">
           <div class="row">
             <div class="col-md-10">
-              <h5 style="margin-top:10px; color:#fff;">Monedas Disponibles</h5>
+              <h5 style="margin-top:10px; color:#fff;">Saldo Disponible</h5>
             </div>
             <div class="col-md-2">
 
             </div>
             <hr><br>
-            <div class="col-md-4">
-              <span class="badge badge-pill badge-light" style="font-size:16px; width:99%;">
-                MXN: {{$user->saldo_mx}}</span>
+            <div class="col-md-12">
+              <span class="badge badge-pill badge-light" style="font-size:22px; width:99%;">
+                Pesos MXN: $ {{number_format($user->saldo, 2, ',', ' ')}}  </span>
             </div>
-            <div class="col-md-4">
-              <span class="badge badge-pill badge-light" style="font-size:16px; width:99%;">
-                USA: {{$user->saldo_usa}}</span>
-            </div>
-            <div class="col-md-4">
-              <span class="badge badge-pill badge-light" style="font-size:16px; width:99%;">
-                GOI: {{number_format($user->saldo, 2, ',', ' ')}}</span>
-            </div>
+
+
 
           </div>
         </div>
@@ -155,7 +151,7 @@
             <div class="col-md-12">
 
               <div style="background-color:#fff;">
-                <h5 style="margin-top:10px; color:#003366;;">Mis Saldos Disponibles</h5>
+                <h5 style="margin-top:10px; color:#003366;;">Informaciòn General</h5>
               <canvas id="myChart" ></canvas>
             </div>
             </div>
@@ -175,29 +171,38 @@
   <thead style="background-color:#003366; color:#fff;">
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Receptor</th>
+      <th scope="col">Operacion</th>
       <th scope="col">Monto $</th>
       <th scope="col">Fecha</th>
     </tr>
   </thead>
   <tbody style="background-color:#fff; color:#000;" id="table_trans">
+
+
+@if(count($mem_count) <= 0)
     <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>Sin</td>
+      <td>Movimientos</td>
+      <td>registrados</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+@else
+
+@foreach($mem_count as $m)
+
+@if($count <= 3)
+<tr>
+  <th scope="row">{{$m->id}}</th>
+  <td>{{$m->membresia}}</td>
+  <td>{{$m->cantidad}}</td>
+  <td>{{$m->fecha_compra}} </td>
+</tr>
+<?php $count = $count + 1; ?>
+@endif
+
+@endforeach
+@endif
+
   </tbody>
 </table>
             </div>
@@ -265,8 +270,7 @@ function get_transacctions(wa){
 
 $( document ).ready(function() {
   $("#saldo_gois").empty();
-  $("#saldo_gois").append("Saldo (Gois): ${{number_format($user->saldo, 2, ',', ' ')}} <i class='fas fa-coins'></i> ");
-  get_transacctions('{{$user->wallet}}');
+  $("#saldo_gois").append("Saldo (Peso MXN): ${{number_format($user->saldo, 2, ',', ' ')}} <i class='fas fa-coins'></i> ");
 });
 </script>
 
@@ -277,10 +281,10 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Goicoin', 'Peso MXN', 'Dollar Usa'],
+        labels: ['Membresias', 'Inversiones', 'Movimientos'],
         datasets: [{
             label: 'Balance General de Monedas',
-            data: ['{{$user->saldo}}', '{{$user->saldo_mx}}', '{{$user->saldo_usa}}'],
+            data: ['{{count($mem_count)}}', '{{$user->saldo_mx}}', '{{$user->saldo_usa}}'],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

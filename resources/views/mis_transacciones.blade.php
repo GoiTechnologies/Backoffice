@@ -11,25 +11,37 @@
 
         <div class="col-md-12 text-center" style="min-height:400px;">
           <hr>
-          <h3 class="text-primary">Mis Ultimas Transacciones <i class="fas fa-exchange-alt"></i></h3>
+          <h3 class="text-primary">Mis Ultimas Operacionès <i class="fas fa-exchange-alt"></i></h3>
 
           <table class="table table-hover">
   <thead style="background-color:#003366; color:#fff;">
     <tr>
       <th scope="col">IDE</th>
-      <th scope="col">Membresia</th>
-      <th scope="col">Status</th>
-      <th scope="col">Fecha de Compra</th>
+      <th scope="col">Operaciòn</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Fecha de Movimiento</th>
     </tr>
   </thead>
   <tbody id="table_trans">
+
+    @if(count($mem_count) <= 0)
     <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>No Hay</td>
+      <td>Operaciones</td>
+      <td>Registradas</td>
     </tr>
+@else
+@foreach($mem_count as $m)
+<tr>
+  <th scope="row">{{$m->id}}</th>
+  <td>{{$m->membresia}}</td>
+  <td>{{$m->cantidad}}</td>
+  <td>{{$m->fecha_compra}}</td>
+</tr>
+@endforeach
 
+@endif
 
   </tbody>
 </table>
@@ -82,8 +94,8 @@ function get_transacctions(wa){
 
 $( document ).ready(function() {
   $("#saldo_gois").empty();
-  $("#saldo_gois").append("Saldo (Gois): ${{$user->saldo}} <i class='fas fa-coins'></i> ");
-  get_transacctions('{{$user->wallet}}');
+  $("#saldo_gois").append("Saldo (Pesos MXN): ${{$user->saldo}} <i class='fas fa-coins'></i> ");
+  //get_transacctions('{{$user->wallet}}');
 });
 </script>
 

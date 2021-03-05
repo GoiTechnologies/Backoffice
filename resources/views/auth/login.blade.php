@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="margin-top:7%;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -65,6 +65,15 @@
                             </div>
                         </div>
                     </form>
+
+                    <hr>
+                    <h3>Registrar Nueva Cuenta</h2>
+                      <button type="button" class="btn btn-primary"
+                      style="margin-left:65%; margin-top:-65px; width:200px; height:40px;"
+                      onclick="location.href = '{{URL::to('/') }}/register';"
+                      >
+                        Registrarme <i class="fas fa-user-circle"></i>
+                      </button>
                 </div>
             </div>
         </div>

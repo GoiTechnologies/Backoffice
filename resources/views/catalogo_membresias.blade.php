@@ -119,25 +119,17 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="tru
         </div>
 
 
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="panel panel-primary text-center" style="background-color:#a1a1a1; color:#fff; padding:10px;">
             <div class="panel-heading">Plan 12</div>
-            <div class="panel-body">12 Meses Rendimiento Fijo <br>20% Mesual<br>
-
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 100,000 MXN </span></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="panel panel-primary text-center" style="background-color:#003366; color:#fff; padding:10px;">
-            <div class="panel-heading">Mi Plan es Ahorrar</div>
-            <div class="panel-body">6 Meses Interes Compuesto <br>174%<br>
+            <div class="panel-body">12 Meses Rendimiento Fijo <br>20% Mesual / Opciòn  de Ahorro 5% Interès<br>
 
                 <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 50,000 MXN </span></p>
             </div>
           </div>
         </div>
+
+
 
 <div class="col-md-12">
   <hr>
@@ -152,7 +144,7 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="tru
     <input class="form-control" value="2000"
         style="width:210px;"
      name="cantidad" type="number" required hidden/>
-     <h4 class="text-success">Total: $ 2,000.00 Mxn</h4>
+     <h3 class="text-primary">Total: $ 2,000.00 Mxn</h3>
     <button type="submit"
     style="margin-left:320px; margin-top:-65px; width:120px;"
     class="btn btn-primary">
@@ -196,7 +188,7 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="tru
 
         <div class="row">
           <div class="col-md-8">
-          <p>Costo de Apertura: 2250.00 MXN<br>
+          <p>Costo de Apertura: 10,000.00 MXN<br>
           Costo de Mensualidad: 2500.00 MXN</p>
         </div>
         <div class="col-md-4">
@@ -208,35 +200,17 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="tru
         </div>
 
 
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="panel panel-primary text-center" style="background-color:#a1a1a1; color:#fff; padding:10px;">
             <div class="panel-heading">Plan 12</div>
             <div class="panel-body">12 Meses Rendimiento Fijo <br>20% Mensual<br>
 
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 100,000 MXN </span></p>
+                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 50,000.00 a 350,000 MXN </span></p>
             </div>
           </div>
         </div>
 
-        <div class="col-md-6">
-          <div class="panel panel-primary text-center" style="background-color:#003366; color:#fff; padding:10px;">
-            <div class="panel-heading">Mi Plan es Ahorrar</div>
-            <div class="panel-body">6 Meses Interes Compuesto <br>174%<br>
 
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 500,000 MXN </span></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12"><hr></div>
-        <div class="col-md-6">
-          <div class="panel panel-primary text-center" style="background-color:#003366; color:#fff; padding:10px;">
-            <div class="panel-heading">Plan Inversion</div>
-            <div class="panel-body">Retorno Inversion 6to Mes <br>20% Mensual<br>
-
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 500,000 MXN </span></p>
-            </div>
-          </div>
-        </div>
 
 <div class="col-md-12">
   <hr>
@@ -247,7 +221,7 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="tru
     </select><br>
     <input value="{{$user->email}}" name="email" hidden/>
     <input value="premium" name="membresia" hidden/>
-    <h4 class="text-success">Total: $ 4,750.00 Mxn</h4>
+    <h4 class="text-primary">Total: $ 4,750.00 Mxn</h4>
     <input class="form-control"
         style="width:210px;" value="4750"
      name="cantidad" type="number" required hidden/>
@@ -278,7 +252,7 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="tru
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal3" style="margin-top:5%;"
+<div class="modal fade" id="exampleModal3" style="margin-top:3%;"
 tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -292,8 +266,8 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="tr
 
         <div class="row">
           <div class="col-md-8">
-          <p>Costo de Apertura: 5,000.00 MXN<br>
-          Costo de Mensualidad: 10,000.00 MXN</p>
+          <p>Costo de Apertura: 60,000.00 MXN<br>
+          Costo de Mensualidad: 15,000.00 MXN</p>
         </div>
         <div class="col-md-4">
           <img src="{{URL::to('/') }}/elite.png" width="90%"/>
@@ -303,23 +277,33 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="tr
           <p>Planes de Inversion Disponibles en esta membresia</p>
         </div>
 
+        <div class="col-md-12" style="margin-bottom:10px;">
+          <div class="panel panel-primary text-center" style="background-color:#a1a1a1; color:#fff; padding:10px;">
+            <div class="panel-heading">Plan 12</div>
+            <div class="panel-body">12 Meses Rendimiento Fijo <br>20% Mensual<br>
+
+                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2500.00 a 15,000.00 MXN </span></p>
+            </div>
+          </div>
+        </div>
+
 
         <div class="col-md-6">
           <div class="panel panel-primary text-center" style="background-color:#a1a1a1; color:#fff; padding:10px;">
-            <div class="panel-heading">Mi Plan es Ahorrar</div>
-            <div class="panel-body">2 Meses Interes Compuesto <br>40% Bimestral<br>
+            <div class="panel-heading">Quiero Invertir</div>
+            <div class="panel-body">12 Meses R.I. <br>20% Rendimiento Mensual<br>
 
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 50,000,000 MXN </span></p>
+                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 9,999,999 MXN </span></p>
             </div>
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="panel panel-primary text-center" style="background-color:#003366; color:#fff; padding:10px;">
-            <div class="panel-heading">Plan Gran Proyecto</div>
-            <div class="panel-body">6 Meses Retorno 6to Mes <br>15% Mensual<br>
+            <div class="panel-heading">Plan 150</div>
+            <div class="panel-body">12 Meses <br>150% Rendimiento<br>
 
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 50,000 MXN </span></p>
+                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 15,000 MXN </span></p>
             </div>
           </div>
         </div>
@@ -333,8 +317,8 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="tr
     </select><br>
     <input value="{{$user->email}}" name="email" hidden/>
     <input value="elite" name="membresia" hidden/>
-    <h4 class="text-success">Total: $ 15,000.00 Mxn</h4>
-    <input class="form-control" value="15000"
+    <h4 class="text-primary">Total: $ 75,000.00 Mxn</h4>
+    <input class="form-control" value="75000"
         style="width:210px;"
      name="cantidad" type="number" required hidden/>
     <button type="submit"
@@ -374,8 +358,8 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="tr
 
         <div class="row">
           <div class="col-md-8">
-          <p>Costo de Apertura: 250.00 MXN<br>
-          Costo de Mensualidad: 500.00 MXN</p>
+          <p>Costo de Apertura: 20,000.00 MXN<br>
+          Costo de Mensualidad: 5,000.00 MXN</p>
         </div>
         <div class="col-md-4">
           <img src="{{URL::to('/') }}/gold.png" width="90%"/>
@@ -386,45 +370,37 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="tr
         </div>
 
 
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="panel panel-primary text-center" style="background-color:#a1a1a1; color:#fff; padding:10px;">
             <div class="panel-heading">Plan 12</div>
             <div class="panel-body">12 Meses Rendimiento Fijo <br>20% Mensual<br>
 
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 100,000 MXN </span></p>
+                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 3,000,000 MXN </span></p>
             </div>
           </div>
         </div>
 
-        <div class="col-md-6">
-          <div class="panel panel-primary text-center" style="background-color:#003366; color:#fff; padding:10px;">
-            <div class="panel-heading">Mi Plan es Ahorrar</div>
-            <div class="panel-body">6 Meses Interes Compuesto <br>174%<br>
 
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 50,000 MXN </span></p>
-            </div>
-          </div>
-        </div>
 
 
         <div class="col-md-12"><hr></div>
         <div class="col-md-6">
           <div class="panel panel-primary text-center" style="background-color:#003366; color:#fff; padding:10px;">
-            <div class="panel-heading">Plan Inversion</div>
-            <div class="panel-body">Retorno Inversion 6to Mes <br>20% Mensual<br>
+            <div class="panel-heading">Plan Quiero Invertir</div>
+            <div class="panel-body">Retorno Inversion 12 Mes <br>20% Mensual<br>
 
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 100,000.00 a 500,000 MXN </span></p>
+                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 3,000,000.00 MXN </span></p>
             </div>
           </div>
         </div>
 
 
         <div class="col-md-6">
-          <div class="panel panel-primary text-center" style="background-color:#a1a1a1; color:#fff; padding:10px;">
-            <div class="panel-heading">Plan Gran Proyecto</div>
-            <div class="panel-body">6 Meses Retorno 6to Mes <br>15% Mensual<br>
+          <div class="panel panel-primary text-center" style="background-color:#003366; color:#fff; padding:10px;">
+            <div class="panel-heading">Plan 150</div>
+            <div class="panel-body">12 Meses <br>150% Rendimiento<br>
 
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 5,000,000 a 10,000,000 MXN </span></p>
+                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 9,000,000.00 MXN </span></p>
             </div>
           </div>
         </div>
@@ -438,8 +414,8 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="tr
     </select><br>
     <input value="{{$user->email}}" name="email" hidden/>
     <input value="gold" name="membresia" hidden/>
-    <h4 class="text-success">Total: $ 750.00 Mxn</h4>
-    <input class="form-control" value="750"
+    <h4 class="text-primary">Total: $ 25,000.00 Mxn</h4>
+    <input class="form-control" value="25000"
         style="width:210px;"
      name="cantidad" type="number" required hidden/>
     <button type="submit"
@@ -469,7 +445,7 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="tr
 
 
 
-<div class="modal fade" id="exampleModal5" style="margin-top:5%;"
+<div class="modal fade" id="exampleModal5" style="margin-top:0%;"
 tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel5" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -483,8 +459,8 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel5" aria-hidden="tr
 
         <div class="row">
           <div class="col-md-8">
-          <p>Costo de Apertura: 10,000.00 MXN<br>
-          Costo de Mensualidad: 20,000.00 MXN</p>
+          <p>Costo de Apertura: 100,000.00 MXN<br>
+          Costo de Mensualidad: 50,000.00 MXN</p>
         </div>
         <div class="col-md-4">
           <img src="{{URL::to('/') }}/empresarial.png" width="90%"/>
@@ -495,22 +471,37 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel5" aria-hidden="tr
         </div>
 
 
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="panel panel-primary text-center" style="background-color:#a1a1a1; color:#fff; padding:10px;">
-            <div class="panel-heading">Mi Gran Proyecto</div>
-            <div class="panel-body">6 Meses Retorno 6to Mes <br>15% Mensual<br>
+            <div class="panel-heading">Plan 12</div>
+            <div class="panel-body">12 Meses Rendimiento Fijo <br>20% Mensual<br>
 
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 100,000,000 MXN </span></p>
+                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 3,000,000 MXN </span></p>
             </div>
           </div>
         </div>
 
+
+
+
+        <div class="col-md-12"><hr></div>
         <div class="col-md-6">
           <div class="panel panel-primary text-center" style="background-color:#003366; color:#fff; padding:10px;">
-            <div class="panel-heading">Mi Plan es Ahorrar</div>
-            <div class="panel-body">2 Meses Interes Compuesto <br>40% Bimestral<br>
+            <div class="panel-heading">Plan Quiero Invertir</div>
+            <div class="panel-body">Retorno Inversion 12 Mes <br>20% Mensual<br>
 
-                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 100,000,000 MXN </span></p>
+                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 3,000,000.00 MXN </span></p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="panel panel-primary text-center" style="background-color:#003366; color:#fff; padding:10px;">
+            <div class="panel-heading">Plan 150</div>
+            <div class="panel-body">12 Meses <br>150% Rendimiento<br>
+
+                <p style="font-size:12px;"><span class="badge badge-pill badge-secondary"> Monto de 2,500.00 a 9,000,000.00 MXN </span></p>
             </div>
           </div>
         </div>
@@ -524,8 +515,8 @@ tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel5" aria-hidden="tr
     @csrf
     <input value="{{$user->email}}" name="email" hidden/>
     <input value="empresarial" name="membresia" hidden/>
-    <h4 class="text-success">Total: $ 30,000.00 Mxn</h4>
-    <input class="form-control" value="30000"
+    <h4 class="text-primary">Total: $ 150,000.00 Mxn</h4>
+    <input class="form-control" value="150000"
         style="width:210px;"
      name="cantidad" type="number" required hidden/>
     <button type="submit"

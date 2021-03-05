@@ -37,7 +37,8 @@
 
           <button type="button" class="btn btn-primary"
           style="margin-left:75%; margin-top:-10px; width:200px; height:50px;"
-          data-toggle="modal" data-target="#exampleModal">
+          onclick="location.href = '{{URL::to('/') }}/login';" 
+          >
             Acceder a mi Cuenta <i class="fas fa-user-circle"></i>
           </button>
 

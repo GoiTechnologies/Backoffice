@@ -55,45 +55,81 @@
 
 
         <td>{{$m->fecha_compra}}</td>
-        <td><button class="btn btn-info btn-sm"  data-toggle="modal" style="width:270px;"
+        <td><button class="btn btn-info btn-sm"  data-toggle="modal" style="width:200px;"
            data-target="#exampleModal{{$m->id}}">Planes {{strtoupper($m->membresia)}} <i class="fas fa-chart-line"></i></button></td>
 
            <td>
-             <?php $stat =true; ?>
-             @if(!$pm)
-                Sin Inversiones <i class="fas fa-times"></i>
 
-                @else
-                @foreach($pm as $p)
+             @if($m->membresia == "estandar")
+             @if(count($pm_estandar_12) > 0)
+              <button class="btn btn-outline-success btn-sm"
+              onclick="location.href = 'https://www.goicoindeveloper.com/backoffice/detalle_inversion?ide=pm_estandar_12';" >
+                <i class="fas fa-chart-line"></i> (12)</button>
+             @endif
+             @endif
 
-                @if($p->membresia == $m->membresia)
-                @if(count($pm) == 6)
-
-                @if($stat)
-                <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (6)</button>
-                <?php $stat = false; ?>
-                @endif
-                @endif
-                @if(count($pm) == 12)
-
-                  @if($stat)
-                <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (12)</button>
-                <?php $stat = false; ?>
-                @endif
+             @if($m->membresia == "premium")
+             @if(count($pm_premium_12) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (12)</button>
+             @endif
+             @endif
 
 
-                @endif
-
-                @endif
-
-                @endforeach
+             @if($m->membresia == "elite")
+             @if(count($pm_elite_12) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (12)</button>
 
              @endif
 
-             @if(0 == 0)
+             @if(count($pm_elite_quiero_12) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (Q)</button>
+             @endif
+             @if(count($pm_elite_quiero_6) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (Q)</button>
+             @endif
 
+
+             @if(count($pm_elite_150_12) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (150)</button>
+             @endif
 
              @endif
+
+
+
+             @if($m->membresia == "gold")
+             @if(count($pm_gold_12) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (12)</button>
+             @endif
+             @if(count($pm_gold_quiero_12) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (Q)</button>
+             @endif
+             @if(count($pm_gold_quiero_6) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (Q6)</button>
+             @endif
+             @if(count($pm_gold_150_12) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (150)</button>
+             @endif
+             @endif
+
+
+
+             @if($m->membresia == "empresarial")
+             @if(count($pm_empresarial_12) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (12)</button>
+             @endif
+             @if(count($pm_empresarial_quiero_12) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (Q)</button>
+             @endif
+             @if(count($pm_empresarial_quiero_6) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (Q6)</button>
+             @endif
+             @if(count($pm_empresarial_150_12) > 0)
+              <button class="btn btn-outline-success btn-sm"><i class="fas fa-chart-line"></i> (150)</button>
+             @endif
+             @endif
+
+
            </td>
       </tr>
       @endforeach
@@ -155,9 +191,13 @@
         <input name="duracion" value="12 meses" hidden>
         <input name="plan" value="Plan 12" hidden>
         <input name="info" value="20% Rendimiento Mensual / Opcion Ahorro 5% Interès Mensual" hidden>
+        @if(count($pm_estandar_12) > 0)
+        <span class="badge badge-success">Adquirida <i class="far fa-check-circle"></i></span>
+        @else
         <input class="form-control" placeholder="Ingrese Cantidad a Invertir $"
         style="width:250px;" type="number" name="cantidad">
         <button class="btn btn-info" style="margin-left:285px; margin-top:-70px;">Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+        @endif
       </form>
       </h5>
       Esta acciòn genera un pull de pagos de tu inversion que deben ser cubiertos mensualmente
@@ -180,9 +220,14 @@
       <input name="duracion" value="12 meses" hidden>
       <input name="plan" value="Plan 12" hidden>
       <input name="info" value="20% Rendimiento Mensual / Opcion Ahorro 5% Interès Mensual" hidden>
+      @if(count($pm_elite_12) > 0)
+      <span class="badge badge-success">Adquirida <i class="far fa-check-circle"></i></span>
+      @else
       <input class="form-control" placeholder="Ingrese Cantidad a Invertir $"
       style="width:250px;" type="number" name="cantidad">
-      <button class="btn btn-info" style="margin-left:285px; margin-top:-70px;">Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      <button class="btn btn-info" style="margin-left:285px; margin-top:-70px;">
+        Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+        @endif
     </form>
       </h5>
 
@@ -197,15 +242,22 @@
          @csrf
       <input name="membresia" value="empresarial" hidden>
       <input name="email" value="{{$user->email}}" hidden>
+      @if(count($pm_empresarial_quiero_12) == 0 && count($pm_empresarial_quiero_6) ==  0)
       <select class="form-control" name="duracion">
           <option value="12 Meses">12 Meses</option>
           <option value="6 Meses">6 Meses</option>
       </select>
+      @endif
       <input name="plan" value="Quiero Invertir" hidden>
       <input name="info" value="20% Rendimiento Mensual" hidden>
+      @if(count($pm_elite_quiero_12) > 0 || count($pm_elite_quiero_6) > 0)
+      <span class="badge badge-success">Adquirida <i class="far fa-check-circle"></i></span>
+      @else
       <input class="form-control" placeholder="Ingrese Cantidad a Invertir $"
       style="width:250px;" type="number" name="cantidad">
-      <button class="btn btn-info" style="margin-left:295px; margin-top:-50px;">Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      <button class="btn btn-info" style="margin-left:295px; margin-top:-50px;">
+        Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+        @endif
     </form>
       </h5>
 
@@ -223,9 +275,14 @@
       <input name="duracion" value="12 meses" hidden>
       <input name="plan" value="Plan 150" hidden>
       <input name="info" value="20% Rendimiento Mensual / Opcion Ahorro 5% Interès Mensual" hidden>
+      @if(count($pm_empresarial_150_12) > 0)
+      <span class="badge badge-success">Adquirida <i class="far fa-check-circle"></i></span>
+      @else
       <input class="form-control" placeholder="Ingrese Cantidad a Invertir $"
       style="width:250px;" type="number" name="cantidad">
-      <button class="btn btn-info" style="margin-left:285px; margin-top:-70px;">Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      <button class="btn btn-info" style="margin-left:285px; margin-top:-70px;">
+        Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      @endif
     </form>
       </h5>
 
@@ -251,10 +308,17 @@
       <input name="email" value="{{$user->email}}" hidden>
       <input name="duracion" value="12 meses" hidden>
       <input name="plan" value="Plan 12" hidden>
+
       <input name="info" value="20% Rendimiento Mensual / Opcion Ahorro 5% Interès Mensual" hidden>
+
+      @if(count($pm_elite_12) > 0)
+      <span class="badge badge-success">Adquirida <i class="far fa-check-circle"></i></span>
+      @else
       <input class="form-control" placeholder="Ingrese Cantidad a Invertir $"
       style="width:250px;" type="number" name="cantidad">
       <button class="btn btn-info" style="margin-left:285px; margin-top:-70px;">Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      @endif
+
     </form>
       </h5>
 
@@ -269,15 +333,22 @@
          @csrf
       <input name="membresia" value="elite" hidden>
       <input name="email" value="{{$user->email}}" hidden>
+      @if(count($pm_elite_quiero_12) == 0 && count($pm_elite_quiero_6) ==  0)
       <select class="form-control" name="duracion">
           <option value="12 Meses">12 Meses</option>
           <option value="6 Meses">6 Meses</option>
       </select>
+      @endif
       <input name="plan" value="Plan Quiero Invertir" hidden>
       <input name="info" value="20% Rendimiento Mensual / Opcion Ahorro 5% Interès Mensual" hidden>
+
+      @if(count($pm_elite_quiero_12) > 0 || count($pm_elite_quiero_6) > 0)
+      <span class="badge badge-success">Adquirida <i class="far fa-check-circle"></i></span>
+      @else
       <input class="form-control" placeholder="Ingrese Cantidad a Invertir $"
       style="width:250px;" type="number" name="cantidad">
       <button class="btn btn-info" style="margin-left:295px; margin-top:-50px;">Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      @endif
     </form>
       </h5>
 
@@ -294,9 +365,15 @@
       <input name="duracion" value="12 meses" hidden>
       <input name="plan" value="Plan 150" hidden>
       <input name="info" value="150% Rendimiento 12 Meses Retorno de Inversiòn" hidden>
+
+      @if(count($pm_elite_150_12) > 0)
+      <span class="badge badge-success">Adquirida <i class="far fa-check-circle"></i></span>
+      @else
       <input class="form-control" placeholder="Ingrese Cantidad a Invertir $"
       style="width:250px;" type="number" name="cantidad">
-      <button class="btn btn-info" style="margin-left:285px; margin-top:-70px;">Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      <button class="btn btn-info" style="margin-left:285px; margin-top:-55px;">
+        Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+        @endif
     </form>
       </h5>
 
@@ -320,9 +397,16 @@
       <input name="duracion" value="12 meses" hidden>
       <input name="plan" value="Plan 12" hidden>
       <input name="info" value="20% Rendimiento Mensual / Opcion Ahorro 5% Interès Mensual" hidden>
+
+      @if(count($pm_gold_12) > 0)
+      <span class="badge badge-success">Adquirida <i class="far fa-check-circle"></i></span>
+      @else
       <input class="form-control" placeholder="Ingrese Cantidad a Invertir $"
       style="width:250px;" type="number" name="cantidad">
-      <button class="btn btn-info" style="margin-left:285px; margin-top:-70px;">Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      <button class="btn btn-info" style="margin-left:285px; margin-top:-70px;">
+        Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      @endif
+
     </form>
       </h5>
 
@@ -335,17 +419,23 @@
       <hr>
       <form action="{{URL::to('/') }}/comprar_inversion" method="post">
          @csrf
-      <input name="membresia" value="elite" hidden>
+      <input name="membresia" value="gold" hidden>
       <input name="email" value="{{$user->email}}" hidden>
+      @if(count($pm_gold_quiero_12) == 0 && count($pm_gold_quiero_6) ==  0)
       <select class="form-control" name="duracion">
           <option value="12 Meses">12 Meses</option>
           <option value="6 Meses">6 Meses</option>
       </select>
+      @endif
       <input name="plan" value="Plan Quiero Invertir" hidden>
       <input name="info" value="20% Rendimiento Mensual / Opcion Ahorro 5% Interès Mensual" hidden>
+      @if(count($pm_gold_quiero_12) > 0 || count($pm_gold_quiero_6) > 0)
+      <span class="badge badge-success">Adquirida <i class="far fa-check-circle"></i></span>
+      @else
       <input class="form-control" placeholder="Ingrese Cantidad a Invertir $"
       style="width:250px;" type="number" name="cantidad">
       <button class="btn btn-info" style="margin-left:295px; margin-top:-50px;">Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      @endif
     </form>
       </h5>
 
@@ -362,9 +452,14 @@
       <input name="duracion" value="12 meses" hidden>
       <input name="plan" value="Plan 150" hidden>
       <input name="info" value="150% Rendimiento 12 Meses Retorno de Inversiòn" hidden>
+      @if(count($pm_gold_150_12) > 0)
+      <span class="badge badge-success">Adquirida <i class="far fa-check-circle"></i></span>
+      @else
       <input class="form-control" placeholder="Ingrese Cantidad a Invertir $"
       style="width:250px;" type="number" name="cantidad">
-      <button class="btn btn-info" style="margin-left:285px; margin-top:-70px;">Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      <button class="btn btn-info" style="margin-left:285px; margin-top:-55px;">
+        Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+      @endif
     </form>
       </h5>
 
@@ -392,9 +487,15 @@
               <input name="duracion" value="12 meses" hidden>
               <input name="plan" value="Plan 12" hidden>
               <input name="info" value="150% Rendimiento 12 Meses Retorno de Inversiòn" hidden>
+
+              @if(count($pm_premium_12) > 0)
+              <span class="badge badge-success">Adquirida <i class="far fa-check-circle"></i></span>
+              @else
               <input class="form-control" placeholder="Ingrese Cantidad a Invertir $"
               style="width:250px;" type="number" name="cantidad">
               <button class="btn btn-info" style="margin-left:285px; margin-top:-70px;">Pagar Inversiòn <i class="fas fa-money-bill-wave"></i></button>
+              @endif
+
             </form>
             </h5>
             Esta acciòn genera un pull de pagos de tu inversion que deben ser cubiertos mensualmente

@@ -29,7 +29,7 @@
         style="background-color:#003366; color:#fff;">
             <div class="container">
                 <a class="navbar-brand" style="color:#fff;" href="{{ url('/') }}">
-                  <img src="{{URL::to('/') }}/logo01.png" style="margin-top:-10px;" width="140px" style="cursor:pointer;"/> BackOffice 
+                  <img src="{{URL::to('/') }}/logo01.png" style="margin-top:-10px;" width="140px" style="cursor:pointer;"/> BackOffice
                 </a>
                 <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -52,7 +52,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link" style="color:#fff; font-weight: bold;" id="saldo_gois"
-                             href="#">Saldo (GOI`s): $0.00</a>
+                             href="#">Saldo (Peso MXN): $0.00</a>
                         </li>
 
                             <li class="nav-item">
@@ -61,8 +61,17 @@
                             </li>
 
                         @else
+                        @if(isset($user))
+                        <a class="nav-link" style="color:#fff; font-weight: bold;" id="saldo_gois"
+                         href="#">Saldo (Peso MXN): ${{ $user->saldo }}.00</a>
+                         @else
+                         <a class="nav-link" style="color:#fff; font-weight: bold;" id="saldo_gois"
+                          href="#">Saldo (Peso MXN): $ 0.00</a>
+                         @endif
+
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:#fff;"
+                                href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 

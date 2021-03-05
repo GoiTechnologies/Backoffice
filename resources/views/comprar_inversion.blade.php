@@ -41,7 +41,7 @@
               <input value="{{$membresia}}" name="membresia" hidden/>
               <input value="{{$plan}} - {{$info}}" name="plan" hidden/>
           <button class="btn btn-primary" style="width:250px;" type="submit">
-            Pago Wallet Goicoin <i class="fas fa-wallet"></i>
+            Pago con Saldo <i class="fas fa-wallet"></i>
           </button>
         </form>
 
@@ -50,7 +50,7 @@
 
           <br>
           <button class="btn btn-info"  style="width:250px;">
-            Pagar con Otro <i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-visa"></i>
+            Recargar Saldo <i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-visa"></i>
           </button>
         </div>
     </div>
@@ -135,7 +135,7 @@ function make_login(mail_id,n_pass,n_name){
 
 $( document ).ready(function() {
   $("#saldo_gois").empty();
-  $("#saldo_gois").append("Saldo (Gois): ${{$user->saldo}} <i class='fas fa-coins'></i> ");
+  $("#saldo_gois").append("Saldo (Pesos MXN): ${{$user->saldo}} <i class='fas fa-coins'></i> ");
 });
 </script>
 

@@ -9,7 +9,7 @@
 
         <div class="col-md-12 text-center" style="min-height:400px;">
           <hr>
-          <h3 class="text-primary">Mis Pagos Mensuales <i class="fas fa-info-circle"></i></h3>
+          <h3 class="text-primary">Todos Mis Pagos Mensuales <i class="fas fa-info-circle"></i></h3>
 
           <table class="table table-hover">
   <thead style="background-color:#003366; color:#fff;">
@@ -19,7 +19,8 @@
 
       <th scope="col">Plan</th>
       <th scope="col">Estado</th>
-      <th scope="col">Vence</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Fecha de Pago</th>
       <th scope="col">Acciòn</th>
     </tr>
   </thead>
@@ -32,6 +33,7 @@
       <td>Tienes</td>
       <td>Pagos</td>
       <td>Pagos</td>
+      <td>Pagos</td>
       <td></td>
 
     </tr>
@@ -41,13 +43,18 @@
     <tr>
       <th scope="row">{{$m->id}}</th>
       <th scope="row"><img src="{{URL::to('/') }}/{{$m->membresia}}.png" width="50px;"/></th>
-      <td style="font-size:12px;">{{$m->plan}}</td>
+      <td style="font-size:12px;">{{substr($m->plan,0,30)}}...</td>
 
       @if($m->status == 0)
            <td class="text-success">Pagado <i class="fas fa-toggle-on"></i></td>
       @else
           <td class="text-warning">Pendiente <i class="fas fa-toggle-off"></i></td>
       @endif
+
+      <td>
+        <h4 style="font-size:16px;">$ {{number_format($m->cantidad, 2, ',', ' ')}}</h4>
+
+      </td>
 
       <td>
         {{$m->fecha_liberacion}}
@@ -62,8 +69,6 @@
           <button class="btn btn-primary btn-sm">Realizar Pago <i class="fas fa-dollar-sign"></i></button>
           @endif
 
-        @else
-        <p style="font-size:12px;">Pagos al Corriente</p>
         @endif
       </td>
     </tr>

@@ -41,7 +41,7 @@
               <input value="{{$membresia}}" name="membresia" hidden/>
 
           <button class="btn btn-primary" style="width:250px;" type="submit">
-            Pago Wallet Goicoin <i class="fas fa-wallet"></i>
+            Pagar con Saldo
           </button>
         </form>
 
@@ -50,7 +50,7 @@
 
           <br><br>
           <button class="btn btn-info"  style="width:250px;">
-            Pagar con Otro <i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-visa"></i>
+            Recargar Saldo
           </button>
         </div>
     </div>
